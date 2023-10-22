@@ -1,0 +1,23 @@
+{
+  "name": "Planeja IdeYou",
+  "short_name": "Planeja IdeYou",
+  "scope": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#FF5356",
+  "background_color": "#FF5356",
+  "icons": [
+    {
+      "src": "https://cdn.ideyou.com.br/assets/appicons/app-icon-ios.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.ideyou.com.br/assets/appicons/app-icon-ios.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

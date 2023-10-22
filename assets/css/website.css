@@ -1,0 +1,360 @@
+html {
+	background: #f5f1e5 !important;
+}
+
+.store-waves {
+	width: 100%;
+	height: 16px;
+	transform: rotate(180deg);
+	background-position-x: center;
+	background-position-y: top;
+	background-repeat: repeat-x;
+	background-color: #012060 !important;
+	background-image: url("../images/store-waves.svg");
+}
+
+.page-wrapper {
+	max-width: 1280px;
+	margin: 0 auto !important;
+}
+.container-fluid {
+	padding: 15px;
+}
+
+#topbar {
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	position: sticky;
+	background-color: #000;
+	/* box-shadow: 0px 2px 10px 5px rgb(0 0 0 / 10%); */
+}
+/* #topbar:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: url("../images/icons/apple-icon-180.png");
+  background-repeat: repeat;
+} */
+
+#topbar {
+	background-repeat: repeat-x;
+	background-size: 10%;
+	background-position: 0 -7px;
+}
+.app-title {
+	background-repeat: no-repeat;
+	background-size: auto 90%;
+	background-position: 65% bottom;
+}
+
+.app-title {
+	margin: 0 auto;
+	max-height: 120px;
+	max-width: 1280px;
+	padding: 2rem 4rem;
+	font-size: 120%;
+	font-weight: 600;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.app-title i {
+	font-size: 145%;
+	padding: 7px 10px;
+}
+.app-title img {
+ width: 80px;
+ height: 80px;
+
+}
+.app-title img:first-of-type {
+ border-radius: .5rem;
+
+}
+
+.christmas_hat {
+	display: none;
+	position: absolute;
+	margin: -20px -107px;
+	-webkit-transform: rotate(335deg);
+	-moz-transform: rotate(335deg);
+	-ms-transform: rotate(335deg);
+	-o-transform: rotate(335deg);
+	transform: rotate(335deg);
+}
+
+div[id^="categoria-"] {
+	scroll-margin-top: 50px;
+}
+
+.app-address {
+	font-size: 0.7rem;
+	font-weight: 500;
+
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: space-between;
+}
+.app-address .col-9 {
+	color: black;
+	font-size: 0.7rem;
+}
+.app-address .col-3 {
+	/* color: #828282; */
+	font-weight: 600;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app-address i {
+	font-size: 150%;
+	margin-right: 0.15rem;
+}
+
+.card-header {
+	background-color: #f2f2f2;
+}
+
+.order-overview {
+	margin: 0 auto;
+	max-width: 720px;
+}
+
+.profiletimeline .cancelado {
+	opacity: 0.5;
+}
+
+#PRODUTOS {
+	scroll-margin-top: 60px;
+}
+
+.navigation {
+	top: 140px;
+	z-index: 10;
+	position: sticky;
+}
+
+hr {
+	width: 80%;
+	margin: 0 auto;
+	border-top: 1px solid rgb(0 0 0 / 5%);
+}
+
+.item-produto {
+	background-color: #ffffff;
+}
+
+.productPhoto {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 0.25rem;
+}
+.productTitle {
+	margin: 0.5rem 0 0;
+	color: #000;
+	font-weight: 600;
+	text-align: center;
+}
+.productObser {
+	padding: 0.5rem 0;
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin-bottom: 0;
+	/* text-align: justify; */
+	/* white-space: normal; */
+}
+.productPriceTag {
+	color: #000;
+	font-weight: 600;
+	text-align: right;
+	font-size: 1.1rem;
+}
+.productPriceTag.promo {
+	color: #008040;
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+.productPriceTag label {
+	display: block;
+	font-size: 0.65rem;
+	color: #8d8d8d;
+	font-weight: 400;
+	line-height: 0.65rem;
+	text-align: right;
+	margin: 0 !important;
+}
+.productPriceTag.promo label {
+	font-size: 0.8rem;
+	line-height: 0.8rem;
+	text-decoration: line-through;
+}
+
+.id_pagamentos_td .stamp {
+	width: 75px;
+	margin-top: -70px;
+	position: absolute;
+}
+
+#modal-signin .logo {
+	display: none;
+}
+
+.user-photo {
+	width: 100px;
+	height: 100px;
+	margin: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* background-size: 100% 100%; */
+	/* background-position: center center; */
+	/* background-image: url('../images/user-placeholder.png'); */
+}
+
+@media (min-width: 1024px) {
+	#checkoutPedido {
+		top: 190px;
+		z-index: 10;
+		position: sticky;
+	}
+	#checkoutPedido .slimScrollDiv {
+		max-height: calc(100vh - 370px);
+	}
+
+	div[id^="categoria-"] {
+		scroll-margin-top: 190px;
+	}
+}
+
+@media (max-width: 1024px) {
+	@media (max-width: 768px) {
+		.main-wrapper {
+			padding-top: calc(0.5rem + 0px);
+			padding-bottom: calc(0.5rem + 100px + env(safe-area-inset-bottom, 70px));
+		}
+		#topbar {
+			/* position: relative; */
+			background-size: 20%;
+			background-position: top center;
+		}
+		.app-title {
+			padding: 1rem;
+			justify-content: flex-start;
+			background-position: 83% bottom;
+		}
+		.app-title h2 {
+			width: 100%;
+			padding: 0 10px;
+		}
+		.app-title img {
+			width: 60px;
+			height: 60px;
+		}
+		.christmas_hat {
+			margin: -15px -80px;
+		}
+		.navigation {
+			top: 0;
+			margin: 10px -15px;
+		}
+		#CARRINHO {
+			top: 0;
+			left: 0;
+			padding: 0;
+			z-index: 20;
+			width: 100vw;
+			position: fixed;
+			min-height: 100vh;
+			background-color: white;
+			transform: scale(0);
+			-webkit-transition: 0.1s ease-in-out;
+			-moz-transition: 0.1s ease-in-out;
+			-o-transition: 0.1s ease-in-out;
+			-ms-transition: 0.1s ease-in-out;
+			transition: 0.1s ease-in-out;
+		}
+		#CARRINHO .slimScrollDiv {
+			max-height: calc(100vh - 240px - env(safe-area-inset-bottom, 0px));
+		}
+		#CARRINHO.show {
+			transform: scale(1);
+		}
+		.card-header.sticky {
+			top: 5.75rem;
+			z-index: 10;
+			margin: 0 -15px;
+			position: sticky;
+			border-radius: 0;
+		}
+
+		.table td,
+		.table th {
+			padding: 0.75rem 0.5rem;
+		}
+
+		.app-qtd {
+			display: inline;
+		}
+		.descricao {
+			color: #2c2c2c;
+			font-weight: 500;
+		}
+
+		.form-control {
+			padding: 0.25rem !important;
+		}
+
+		tr:not(.item) {
+			font-size: 90%;
+		}
+
+		.productPhoto {
+			width: 80px;
+			height: 80px;
+		}
+	}
+
+	.productTitle {
+		font-size: 0.75rem;
+	}
+	.productObser {
+		font-size: 0.72rem;
+		padding: 0.2rem 0;
+	}
+
+	.id_pagamentos_td {
+		display: block;
+		margin-top: 10px;
+		position: relative;
+	}
+	.id_pagamentos_td .stamp {
+		margin-top: 0px;
+		position: relative;
+	}
+
+	#modal-signin .modal-content {
+		height: 100vh;
+	}
+	#modal-signin .logo {
+		width: 60%;
+		display: block;
+		margin: 0 auto;
+	}
+	#modal-signin .modal-body {
+		flex: 0;
+		margin: auto 0;
+	}
+}

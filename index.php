@@ -408,6 +408,9 @@ if (true === false)
                 <!-- ============================================================== -->
                 <!-- End Page Content -->
                 <!-- ============================================================== -->
+                <a href="https://ideyou.com.br" target="_blank" class="footer">
+                    <img src="assets/images/system-copyrights.png" alt="Desenvolvido por IdeYou.">
+                </a>
             </div>
             <!-- ============================================================== -->
             <!-- End Content/-->

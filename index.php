@@ -137,12 +137,12 @@ if (true === false)
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-6">
+                    <div class="col-md-2 d-md-block d-none">
                         <button type="reset" form="processarPlanejamento" class="btn btn-card btn-athenas" style="font-size: 2.5rem;">
                             <i class="mdi mdi-broom"></i>
                         </button>
                     </div>
-                    <div class="col-md-2 col-6">
+                    <div class="col-md-2 d-md-block d-none">
                         <button type="submit" form="processarPlanejamento" class="btn btn-card btn-info" style="font-size: 2.5rem;">
                             <i class="mdi mdi-printer"></i>
                         </button>
@@ -417,20 +417,33 @@ if (true === false)
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- NOTIFICATION -->
+    <!-- ============================================================== -->
     <div id="install-prompt" class="app-notbar text-main border-main border-top id_bg-white d-none">
         <img class="pointer" src="assets/images/system-icon.svg" alt="<?= COMPANY_NAME; ?>" />
         <a href="#" class="text-main text-bold pointer">Instale o App!</a>
         <i class="mdi mdi-close m-0 p-3"></i>
     </div>
     <!-- ============================================================== -->
-    <!-- End Wrapper -->
+    <!-- NAVIGATION -->
     <!-- ============================================================== -->
+    <div class="app-navbar waves-effect waves-dark border-top id_bg-themecolor border-themecolor">
+        <button type="reset" form="processarPlanejamento" class="w-100 no-bg no-border text-white">
+            <i class="mdi mdi-broom"></i> Resetar
+        </button>
+        <button type="submit" form="processarPlanejamento" class="w-100 no-bg no-border text-white">
+            <i class="mdi mdi-printer"></i> Imprimir
+        </button>
+    </div>
     <!-- ============================================================== -->
     <!-- All Scripts -->
     <!-- ============================================================== -->
     <script type="text/javascript" charset="UTF-8" src="assets/js/moment.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" charset="UTF-8" src="assets/js/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="assets/js/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.functions.js"></script>
     <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.js"></script>
     <?php

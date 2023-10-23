@@ -917,15 +917,6 @@ Layouts
 	padding: 20px;
 }
 
-@media (max-width: 768px) {
-	.left-sidebar {
-		padding-bottom: 70px;
-	}
-	.container-fluid {
-		padding-bottom: calc(70px + env(safe-area-inset-bottom));
-	}
-}
-
 /*******************
  Topbar
 *******************/

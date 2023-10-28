@@ -20,7 +20,8 @@ $descricao = Core::post('descricao') ?: [];
 $link   	 = Core::post('link') ?: [];
 
 foreach ($descricao as $i => $item) {
-	$ANEXOS[] = (object) array('descricao' => $descricao[$i], 'link' => $link[$i]);
+	if (!empty($descricao[$i]) && !empty($link[$i]))
+		$ANEXOS[] = (object) array('descricao' => $descricao[$i], 'link' => $link[$i]);
 }
 
 /*
@@ -39,7 +40,7 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->SetSubject('Planejamento de Aula');
 	$pdf->SetAuthor('Isaque Costa - (31) 9 9071-2203');
 	$pdf->SetCreator('IdeYou - Acelerando Ideias!');
-	$pdf->SetTitle('Planejamento_' . utf8_decode(Core::post('turma')) . '_' . Core::post('periodo_i') . '_' . Core::post('periodo_f'));
+	$pdf->SetTitle('Planejamento_' . utf8_decode(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f')));
 	////////////////////////////////////////////////////////////////////////////////
 	$pdf->AddPage('P');
 	$pdf->SetTextColor(0, 0, 0);
@@ -84,7 +85,7 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->SetFont('ARIAL', 'B', 9);
 	$pdf->Cell(16, 7, utf8_decode('Período: '), 'TLB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(33, 7, utf8_decode(Core::post('periodo_i') . ' à ' . Core::post('periodo_f')), 'TB', 1, 'L', false);
+	$pdf->Cell(33, 7, utf8_decode(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
 
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
@@ -257,98 +258,33 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Unidade Temática/Práticas de Linguagens: '), '', 'L');
-	$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('praticas_de_linguagem')), '', 'J');
+	if (sizeof($ANEXOS)) {
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Anexos: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		$pdf->SetXY(45, $Y1);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Habilidades: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('habilidades')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Metodologias / Estratégias de Ensino: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('estrategias_de_ensino')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Avaliações / Formas: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('avaliacoes_formas')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Anexos: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
 
-	$pdf->SetFont('ARIAL', 'B', 9);
-	foreach ($ANEXOS as $id => $item) {
-		$pdf->SetX(50);
-		$pdf->Image('https://chart.googleapis.com/chart?cht=qr&chs=250x250&chld=L|0&chl=' . urlencode($item->link), 50, $pdf->GetY(), 25, 25, 'PNG');
-		$pdf->Image(BASEPATH . 'assets/images/qrcode_overlay.png', 50, $pdf->GetY(), 25, 25, 'PNG');
-		$pdf->Cell(25, 25, utf8_decode(''), 0, 0, 'L');
-		$pdf->SetX(78);
-		$pdf->MultiCell(0, 25, utf8_decode('#' . sprintf('%02d', $id + 1) . ' - ' . $item->descricao), 0, 'L');
-		$pdf->Ln(3);
+		$pdf->SetFont('ARIAL', 'B', 9);
+		foreach ($ANEXOS as $id => $item) {
+			$pdf->SetX(50);
+			$pdf->Image('https://chart.googleapis.com/chart?cht=qr&chs=250x250&chld=L|0&chl=' . urlencode($item->link), 50, $pdf->GetY(), 25, 25, 'PNG');
+			$pdf->Image(BASEPATH . 'assets/images/qrcode_overlay.png', 50, $pdf->GetY(), 25, 25, 'PNG');
+			$pdf->Cell(25, 25, utf8_decode(''), 0, 0, 'L');
+			$pdf->SetX(78);
+			$pdf->MultiCell(0, 25, utf8_decode('#' . sprintf('%02d', $id + 1) . ' - ' . $item->descricao), 0, 'L');
+			$pdf->Ln(3);
+		}
+
+		$pdf->Ln(1);
 	}
-
-	$pdf->Ln(1);
 }
 /*
  * IMPRIMIR A SAIDA DO ARQUIVO

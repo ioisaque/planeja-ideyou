@@ -323,58 +323,6 @@ if (true === false)
                                 </div>
                             </div>
 
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="text-bold">Unidade Temática/Práticas de Linguagens: </label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <textarea name="praticas_de_linguagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="text-bold">Habilidades: </label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <textarea name="habilidades" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="text-bold">Metodologias/Estratégias de Ensino: </label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <textarea name="estrategias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="text-bold">Avaliações/Formas: </label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <textarea name="avaliacoes_formas" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">

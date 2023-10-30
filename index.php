@@ -160,7 +160,7 @@ if (true === false)
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label>Código</label>
-                                        <input type="text" name="codigo" class="form-control text-center" required>
+                                        <input type="text" name="codigo" class="form-control text-center">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Ano/Turma</label>
@@ -183,11 +183,11 @@ if (true === false)
                                     <div class="form-group col-md-4">
                                         <label>Período</label>
                                         <div class="input-daterange input-group">
-                                            <input type="text" name="periodo_i" value="<?= DATA(); ?>" class="form-control id_bg-dynamic b-0 text-center datepicker id_font10x" required>
+                                            <input type="text" name="periodo_i" value="<?= HOJE; ?>" class="form-control id_bg-dynamic b-0 text-center datepicker id_font10x" required>
                                             <div class="input-group-append pointer">
                                                 <span class="id_font18x px-4 text-themecolor"><i class="mdi mdi-calendar-range"></i></span>
                                             </div>
-                                            <input type="text" name="periodo_f" value="<?= DATA(); ?>" class="form-control id_bg-dynamic b-0 text-center datepicker id_font10x" required>
+                                            <input type="text" name="periodo_f" value="<?= HOJE; ?>" class="form-control id_bg-dynamic b-0 text-center datepicker id_font10x" required>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@ if (true === false)
                                             <label class="text-bold">Unidade Temática: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@ if (true === false)
                                             <label class="text-bold">Objeto de Conhecimento: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="objeto_de_conhecimento" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="objeto_de_conhecimento" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +226,7 @@ if (true === false)
                                             <label class="text-bold">Habilidade: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@ if (true === false)
                                             <label class="text-bold">Competências Específicas: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="competencias_especificas" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="competencias_especificas" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@ if (true === false)
                                             <label class="text-bold">Expectativa de Aprendizagem: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@ if (true === false)
                                             <label class="text-bold">Espaço de Aula: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="espaco_de_aula" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="espaco_de_aula" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +278,7 @@ if (true === false)
                                             <label class="text-bold">Materiais Utilizados: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="materiais_utilizados" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="materiais_utilizados" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +291,7 @@ if (true === false)
                                             <label class="text-bold">Organização dos Alunos: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="organizacao_dos_alunos" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="organizacao_dos_alunos" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +304,7 @@ if (true === false)
                                             <label class="text-bold">Metodologias/Estratégias de Ensino: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +317,7 @@ if (true === false)
                                             <label class="text-bold">Forma de Avaliação: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." required></textarea>
+                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
                                         </div>
                                     </div>
                                 </div>

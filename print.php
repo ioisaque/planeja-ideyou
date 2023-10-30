@@ -14,6 +14,7 @@ require_once(BASEPATH . "lib/fpdf/fpdf.php");
 $ESCOLA = "ESCOLA ESTADUAL JOÃO PAULO II";
 $EMAIL = "Telefone: (31) 9 9510-8515         Email: escola.213314@eduacao.mg.gov.br";
 $ENDERECO = 'Avenida dos Eucaliptos, 100 Revés do Belém - Bom Jesus do Galho/MG 35340-000';
+$PLANEJA = 'Planejamento_' . utf8_decode(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f'));
 
 $ANEXOS = [];
 $descricao = Core::post('descricao') ?: [];
@@ -40,7 +41,7 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->SetSubject('Planejamento de Aula');
 	$pdf->SetAuthor('Isaque Costa - (31) 9 9071-2203');
 	$pdf->SetCreator('IdeYou - Acelerando Ideias!');
-	$pdf->SetTitle('Planejamento_' . utf8_decode(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f')));
+	$pdf->SetTitle($PLANEJA);
 	////////////////////////////////////////////////////////////////////////////////
 	$pdf->AddPage('P');
 	$pdf->SetTextColor(0, 0, 0);
@@ -294,4 +295,4 @@ for ($p = 1; $p <= 2; $p++) {
  * mais opcoes no final do artigo ou visite o manual fpdf.
  */
 $download = Core::post('download') ? 'D' : 'I';
-$pdf->Output($download, 'Planejamento_1ANO_A.pdf');
+$pdf->Output($download, $PLANEJA . '.pdf');

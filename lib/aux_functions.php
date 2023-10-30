@@ -280,7 +280,7 @@ function DATA_F($data, $de, $para)
  **/
 function DATA($date = false)
 {
-	return DATA_F($date, false, "d/m/Y");
+	return DATA_F($date, "d/m/Y", "d/m/y");
 }
 
 /**

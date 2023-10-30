@@ -194,6 +194,58 @@ function visualizarPlanejamento(uuid) {
 	}
 }
 
+function copiarPlanejamento(uuid) {
+	const planejamentos = JSON.parse(localStorage.getItem('planejamentos')) || [];
+	const planejamento = planejamentos.find(obj => obj.id === uuid);
+
+	$("#anexos").html(`
+	<div class="row">
+		<div class="col-5">
+				<label>Descrição</label>
+				<input type="text" name="descricao[]" class="form-control" value="${planejamento.descricao}">
+		</div>
+		<div class="col-5">
+				<label>Link</label>
+				<input type="text" name="link[]" class="form-control" value="${planejamento.link}">
+		</div>
+		<div class="col-2">
+				<label></label>
+				<button type="button" onClick="addAnexo()" class="btn p-1 btn-block btn-success">
+						<i class="mdi id_font14x mdi-plus"></i>
+				</button>
+		</div>
+	</div>
+`);
+
+	if (planejamento) {
+		// Assuming the attributes in the object have the same names as form elements
+		for (const key in planejamento) {
+			if (planejamento.hasOwnProperty(key)) {
+				const value = planejamento[key];
+
+				if (key != 'descricao[]' && key != 'link[]')
+					$(`[name="${key}"]`).val(value);
+
+				if (key == 'periodo_i' || key == 'periodo_f')
+					$(`[name="${key}"]`).datepicker('update', value);
+			}
+		}
+
+
+		planejamento.link.forEach((item, index) => {
+			// Check if the field exists, if not, create it
+			if (!$(`[name="descricao[]"]`).eq(index).length)
+				// Create the input field
+				addAnexo(planejamento.descricao[index], planejamento.link[index]);
+			else {
+				$(`[name="descricao[]"]`).eq(index).val(planejamento.descricao[index]);
+				$(`[name="link[]"]`).eq(index).val(planejamento.link[index]);
+			}
+		});
+
+		$(`[name="id"]`).val('');
+	}
+}
 
 function listarPlanejamentos() {
 	$("#planejamentos").html('');
@@ -202,7 +254,7 @@ function listarPlanejamentos() {
 	LISTA.sort((a, b) => new Date(b.criado_em) - new Date(a.criado_em));
 
 	LISTA.forEach(planejamento => {
-		$("#planejamentos").append(`<a href="#${planejamento.id}" onclick="visualizarPlanejamento('${planejamento.id}')" class="d-block mb-1 text-primary"><i class="mdi id_font12x mdi-file-pdf-box"></i> ${planejamento.professor}, ${planejamento.turma} - ${moment(planejamento.criado_em).format("DD/MM/YY")} às ${moment(planejamento.criado_em).format("HH:mm")}</a>`);
+		$("#planejamentos").append(`<a href="#${planejamento.id}" onclick="visualizarPlanejamento('${planejamento.id}')" class="d-inline-block mb-1 text-primary"><i class="mdi id_font12x mdi-file-pdf-box"></i> ${planejamento.professor}, ${planejamento.turma} - ${moment(planejamento.criado_em).format("DD/MM/YY")} às ${moment(planejamento.criado_em).format("HH:mm")}</a> <a href="#copy-${planejamento.id}" onclick="copiarPlanejamento('${planejamento.id}')" class="d-inline-block mb-1 text-secondary"><i class="mdi id_font12x mdi-content-copy"></i></a><br>`);
 	});
 }
 

@@ -89,178 +89,199 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->Cell(33, 7, utf8_decode(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
 
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Unidade Temática: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	if (Core::post('unidade_tematica') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Unidade Temática: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('unidade_tematica')), '', 'J');
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('unidade_tematica')), '', 'J');
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	if (Core::post('objeto_de_conhecimento') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Objeto de Conhecimento: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('objeto_de_conhecimento')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Objeto de Conhecimento: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	endif;
+	if (Core::post('habilidade') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Habilidade: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('objeto_de_conhecimento')), '', 'J');
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('habilidade')), '', 'J');
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	if (Core::post('competencias_especificas') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Competências Específicas: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('competencias_especificas')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Habilidade: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	endif;
+	if (Core::post('expectativa_de_aprendizagem') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Expectativa de Aprendizagem: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('habilidade')), '', 'J');
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('expectativa_de_aprendizagem')), '', 'J');
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	if (Core::post('espaco_de_aula') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Espaço de Aula: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('espaco_de_aula')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Competências Específicas: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	endif;
+	if (Core::post('materiais_utilizados') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Materiais Utilizados: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('competencias_especificas')), '', 'J');
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('materiais_utilizados')), '', 'J');
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	if (Core::post('organizacao_dos_alunos') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Organização dos Alunos: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('organizacao_dos_alunos')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Expectativa de Aprendizagem: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	endif;
+	if (Core::post('metodologias_de_ensino') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Metodologias/Estratégias de Ensino: '), '', 'L');
+		$Y2 = $pdf->GetY();
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('expectativa_de_aprendizagem')), '', 'J');
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('metodologias_de_ensino')), '', 'J');
 
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
 
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	if (Core::post('forma_de_avaliacao') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, utf8_decode('Forma de Avaliação: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('forma_de_avaliacao')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Espaço de Aula: '), '', 'L');
-	$Y2 = $pdf->GetY();
+	endif;
+	if (sizeof($ANEXOS)) :
+		//////////////////////////////////////////////////////////////////////////////
 
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('espaco_de_aula')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Materiais Utilizados: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('materiais_utilizados')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Organização dos Alunos: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('organizacao_dos_alunos')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Metodologias/Estratégias de Ensino: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('metodologias_de_ensino')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-	$pdf->Ln(1);
-	$Y1 = $pdf->GetY();
-	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->MultiCell(45, 4, utf8_decode('Forma de Avaliação: '), '', 'L');
-	$Y2 = $pdf->GetY();
-
-	$pdf->SetXY(45, $Y1);
-	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('forma_de_avaliacao')), '', 'J');
-
-	if ($Y2 > $pdf->GetY())
-		$pdf->SetY($Y2);
-
-	$pdf->Ln(1);
-	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
-	//////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////
-
-	if (sizeof($ANEXOS)) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
@@ -285,7 +306,9 @@ for ($p = 1; $p <= 2; $p++) {
 		}
 
 		$pdf->Ln(1);
-	}
+	//////////////////////////////////////////////////////////////////////////////
+	endif;
+	//////////////////////////////////////////////////////////////////////////////
 }
 /*
  * IMPRIMIR A SAIDA DO ARQUIVO

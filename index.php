@@ -133,7 +133,7 @@ if (true === false)
                         <div class="card">
                             <div class="card-body">
                                 <label class="text-bold">Planejamentos Recentes: </label>
-                                <div id="planejamentos"></div>
+                                <div id="planejamentos" class="slimScrollDiv" style="max-height: 60px;"></div>
                             </div>
                         </div>
                     </div>

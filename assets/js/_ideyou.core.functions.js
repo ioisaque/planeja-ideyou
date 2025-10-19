@@ -284,7 +284,6 @@ function addAnexo(descricao = '', link = '') {
 	anexos.insertBefore(newRow, anexos.firstChild);
 }
 
-
 function removeAnexo(button) {
 	button.parentNode.parentNode.remove();
 }

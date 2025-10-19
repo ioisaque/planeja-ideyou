@@ -15,13 +15,13 @@ if (true === false)
     <meta name="author" content="IdeYou - Isaque Costa">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        Planejamento by <?= COMPANY_NAME; ?>
+        Aurélio - Planejamento Escolar
     </title>
-    <meta name="keywords" content="">
-    <meta name="description" content="Desenvolvido por IdeYou - Acelerando Ideias!">
-    <meta content="Planejamento by <?= COMPANY_NAME; ?>" property="og:title">
-    <meta content="Desenvolvido por IdeYou - Acelerando Ideias!" property="og:description">
-
+    <meta content="Aurélio - Planejamento Escolar" property="og:title">
+    <meta name="description" content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar.">
+    <meta content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar." property="og:description">
+    <meta name="keywords" content="planejamento escolar, planejamento de aulas, plano de ensino, educação básica, professor, aula, currículo, BNCC, ensino fundamental, ensino médio, organização pedagógica, planejamento pedagógico, ferramenta educacional, app para professores, isaque.it, Aurélio, aplicativo educacional, imprimir planejamento, IdeYou, tecnologia educacional, ensino público, educação digital, gestor escolar">
+    
     <!-- PWA -->
     <link charset="UTF-8" rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#012060">
@@ -29,7 +29,7 @@ if (true === false)
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <meta name="apple-mobile-web-app-title" content="Planejamento by <?= COMPANY_NAME; ?>">
+    <meta name="apple-mobile-web-app-title" content="Aurélio - Planejamento Escolar">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
 
     <!-- Favicons -->
@@ -100,10 +100,10 @@ if (true === false)
         <div id="topbar" class="id_bg-themecolor">
             <div class="app-title">
                 <a href="./">
-                    <img src="assets/images/EEJPII.jpg" alt="<?= COMPANY_NAME; ?>" />
+                    <img src="assets/images/logo-aurelio.png" alt="<?= COMPANY_NAME; ?>" />
                     <img class="christmas_hat" src="assets/images/christmas_hat.png" alt="Ho Ho Ho" />
                 </a>
-                <h2 class="text-white text-bold">Planejamento de Aula</h2>
+                <h2 class="text-white text-bold">Aurélio - Planejamento de Aulas</h2>
                 <div class="d-md-block d-none">
                 </div>
             </div>
@@ -356,8 +356,8 @@ if (true === false)
                 <!-- ============================================================== -->
                 <!-- End Page Content -->
                 <!-- ============================================================== -->
-                <a href="https://ideyou.com.br" target="_blank" class="footer">
-                    <img src="assets/images/system-copyrights.png" alt="Desenvolvido por IdeYou.">
+                <a href="https://isaque.it" target="_blank" class="footer">
+                    <img src="https://cdn.isaque.it/assets/rights/developed-dark.png" alt="Desenvolvido por isaque.it.">
                 </a>
             </div>
             <!-- ============================================================== -->

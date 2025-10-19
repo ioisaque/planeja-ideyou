@@ -48,7 +48,7 @@ for ($p = 1; $p <= 2; $p++) {
 	$pdf->Image(BASEPATH . 'assets/images/powered_opacity.jpg', 0, -25, 210, 210, 'JPG');
 
 	$pdf->Cell(45, 25, utf8_decode(''), '', 0, 'C', false);
-	$pdf->Image(BASEPATH . 'assets/images/EEJPII.jpg', 9, 5, 25, 0, 'JPG');
+	$pdf->Image(BASEPATH . 'assets/images/logo-aurelio.png', 9, 5, 25, 0, 'JPG');
 
 	$pdf->SetFont('ARIAL', 'B', 12);
 	$pdf->Cell(165, 10, utf8_decode($ESCOLA), '', 2, 'C', false);

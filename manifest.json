@@ -6,22 +6,60 @@
   "start_url": "./",
   "orientation": "any",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "theme_color": "#FFFFFF",
   "background_color": "#012060",
   "icons": [
     {
-      "src": "assets/images/logo-aurelio.png",
+      "src": "assets/icons/aurelio-192-any.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/images/logo-aurelio.png",
+      "src": "assets/icons/aurelio-512-any.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/aurelio-192-maskable.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icons/aurelio-512-maskable.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Nova Aula",
+      "short_name": "+Nova Aula",
+      "description": "Crie um novo planejamento.",
+      "url": "/",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-nova.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    "education",
+    "productivity",
+    "teaching"
+  ],
+  "lang": "pt-BR",
+  "dir": "ltr",
   "app_name": "Aurélio - Planejamento de Aulas",
   "description": "Crie, organize e imprima planejamentos pedagógicos seguindo à BNCC, de forma simples e rápida."
 }

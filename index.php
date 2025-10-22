@@ -14,6 +14,7 @@ if (true === false)
     <meta name="robots" content="index, follow">
     <meta name="author" content="IdeYou - Isaque Costa">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="assets/icons/favicon-512.png" type="image/png" sizes="512x512">
     <title>
         Aurélio - Planejamento Escolar
     </title>
@@ -21,25 +22,17 @@ if (true === false)
     <meta name="description" content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar.">
     <meta content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar." property="og:description">
     <meta name="keywords" content="planejamento escolar, planejamento de aulas, plano de ensino, educação básica, professor, aula, currículo, BNCC, ensino fundamental, ensino médio, organização pedagógica, planejamento pedagógico, ferramenta educacional, app para professores, isaque.it, Aurélio, aplicativo educacional, imprimir planejamento, IdeYou, tecnologia educacional, ensino público, educação digital, gestor escolar">
-    
+
     <!-- PWA -->
-    <link charset="UTF-8" rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json?v=<?= filemtime('manifest.json'); ?>">
     <meta name="theme-color" content="#012060">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <meta name="apple-mobile-web-app-title" content="Aurélio - Planejamento Escolar">
+    <meta name="apple-mobile-web-app-title" content="Aurélio">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-180.png">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-icon-180.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/images/icons/favicon-64.png">
-    <link rel="icon" type="image/png" sizes="196x196" href="assets/images/icons/favicon-196.png">
-    <meta name="msapplication-square70x70logo" content="assets/images/icons/mstile-icon-128.png">
-    <meta name="msapplication-square150x150logo" content="assets/images/icons/mstile-icon-270.png">
-    <meta name="msapplication-square310x310logo" content="assets/images/icons/mstile-icon-558.png">
-    <meta name="msapplication-wide310x150logo" content="assets/images/icons/mstile-icon-558-270.png">
 
     <!-- SPLASH -->
     <link rel="apple-touch-startup-image" href="assets/splash/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
@@ -100,7 +93,7 @@ if (true === false)
         <div id="topbar" class="id_bg-themecolor">
             <div class="app-title">
                 <a href="./">
-                    <img src="assets/images/logo-aurelio.png" alt="<?= COMPANY_NAME; ?>" />
+                    <img src="assets/icons/aurelio-white-1080.png" alt="<?= COMPANY_NAME; ?>" />
                     <img class="christmas_hat" src="assets/images/christmas_hat.png" alt="Ho Ho Ho" />
                 </a>
                 <h2 class="text-white text-bold">Aurélio - Planejamento de Aulas</h2>
@@ -200,7 +193,7 @@ if (true === false)
                                             <label class="text-bold">Unidade Temática: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +206,7 @@ if (true === false)
                                             <label class="text-bold">Objeto de Conhecimento: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="objeto_de_conhecimento" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="objeto_de_conhecimento" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +219,7 @@ if (true === false)
                                             <label class="text-bold">Habilidade: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +232,7 @@ if (true === false)
                                             <label class="text-bold">Competências Específicas: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="competencias_especificas" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="competencias_especificas" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +245,7 @@ if (true === false)
                                             <label class="text-bold">Expectativa de Aprendizagem: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +258,7 @@ if (true === false)
                                             <label class="text-bold">Espaço de Aula: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="espaco_de_aula" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="espaco_de_aula" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +271,7 @@ if (true === false)
                                             <label class="text-bold">Materiais Utilizados: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="materiais_utilizados" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="materiais_utilizados" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +284,7 @@ if (true === false)
                                             <label class="text-bold">Organização dos Alunos: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="organizacao_dos_alunos" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="organizacao_dos_alunos" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +297,7 @@ if (true === false)
                                             <label class="text-bold">Metodologias/Estratégias de Ensino: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +310,7 @@ if (true === false)
                                             <label class="text-bold">Forma de Avaliação: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..." ></textarea>
+                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
                                         </div>
                                     </div>
                                 </div>

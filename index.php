@@ -14,7 +14,7 @@ if (true === false)
     <meta name="robots" content="index, follow">
     <meta name="author" content="IdeYou - Isaque Costa">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="assets/icons/favicon-512.png" type="image/png" sizes="512x512">
+    <link rel="icon" href="assets/icons/favicon.png" type="image/png" sizes="512x512">
     <title>
         Aurélio - Planejamento Escolar
     </title>
@@ -30,7 +30,7 @@ if (true === false)
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <link rel="apple-touch-icon" href="assets/icons/apple-icon-180.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon.png">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
 
     <!-- SPLASH -->
@@ -92,10 +92,10 @@ if (true === false)
         <div id="topbar" class="id_bg-themecolor">
             <div class="app-title">
                 <a href="./">
-                    <img src="assets/icons/aurelio-white-1080.png" alt="<?= COMPANY_NAME; ?>" />
+                    <img src="assets/images/aurelio-white.png" alt="<?= COMPANY_NAME; ?>" />
                     <img class="christmas_hat" src="assets/images/christmas_hat.png" alt="Ho Ho Ho" />
                 </a>
-                <h2 class="text-white text-bold">Aurélio - Planejamento de Aulas</h2>
+                <h2 class="text-white text-bold">Aurélio</h2>
                 <div class="d-md-block d-none">
                 </div>
             </div>
@@ -366,7 +366,7 @@ if (true === false)
     <!-- NOTIFICATION -->
     <!-- ============================================================== -->
     <div id="install-prompt" class="app-notbar text-main border-main border-top id_bg-white d-none">
-        <img class="pointer" src="assets/images/system-icon.svg" alt="<?= COMPANY_NAME; ?>" />
+        <img class="pointer" src="assets/images/aurelio-blue.png" alt="<?= COMPANY_NAME; ?>" />
         <a href="#" class="text-main text-bold pointer">Instale o App!</a>
         <i class="mdi mdi-close m-0 p-3"></i>
     </div>

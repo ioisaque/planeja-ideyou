@@ -13,23 +13,9 @@ $(function () {
 	$(".preloader").fadeOut(250);
 
 	listarPlanejamentos();
+	abrirPlanejamentoPorHash();
 
-	// Add event listeners for change events
-	// $('input, textarea, select').on('change paste keyup', function (event) {
-	// 	console.log(`event => `, event);
-	// 	const name = $(this).attr('name');
-	// 	const value = $(this).val();
-	// 	setCookie(name, value);
-	// });
-
-	// Populate form elements with cookie values (on page load)
-	// $('input, textarea, select').each(function () {
-	// 	const name = $(this).attr('name');
-	// 	const value = getCookie(name);
-	// 	if (value !== null) {
-	// 		$(this).val(value);
-	// 	}
-	// });
+	$(window).on("hashchange", abrirPlanejamentoPorHash);
 
 	$("#processarPlanejamento").on("reset", function (event) {
 		$("#anexos").html(`
@@ -51,50 +37,14 @@ $(function () {
 			</div>
 		`);
 	});
-	$("#processarPlanejamento").on("submit", function (event) {
-		event.preventDefault();
 
-		// Extracting values from dynamic fields
-		let descricaoValues = [];
-		let linkValues = [];
-
-		$('input[name="descricao[]"]').each(function () {
-			descricaoValues.push($(this).val());
-		});
-
-		$('input[name="link[]"]').each(function () {
-			linkValues.push($(this).val());
-		});
-
-		let planejamento = $(this).serializeArray().reduce(function (a, x) { a[x.name] = x.value; return a; }, {});
-		planejamento.descricao = descricaoValues;
-		planejamento.link = linkValues;
-
-		let LISTA = JSON.parse(localStorage.planejamentos || "[]");
-
-		planejamento.criado_em = new Date();
-		planejamento.formData = encodeURI($(this).serialize());
-
-		if (!planejamento?.id) {
-			planejamento.id = crypto.randomUUID();
-			$('input[name="id"]').val(planejamento.id);
-			LISTA.push(planejamento);
-		} else {
-			LISTA = LISTA.map((item) => {
-				return item.id === planejamento.id ? planejamento : item;
-			});
+	$("#processarPlanejamento").on("submit", function () {
+		try {
+			salvarPlanejamentoLocal($(this));
+		} catch (err) {
+			console.error("Erro ao salvar planejamento:", err);
 		}
-
-		localStorage.planejamentos = JSON.stringify(LISTA);
-
-		event.target.submit();
-		listarPlanejamentos();
-
-		setTimeout(() => {
-			event.target.reset();
-		}, 1000);
 	});
-
 
 	if ("serviceWorker" in navigator) {
 		console.log("Will the service worker register?");

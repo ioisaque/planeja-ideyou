@@ -387,8 +387,8 @@ if (true === false)
     <script type="text/javascript" charset="UTF-8" src="assets/js/moment.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="assets/js/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.functions.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.functions.js?v=<?= filemtime('assets/js/_ideyou.core.functions.js'); ?>"></script>
+    <script type="text/javascript" charset="UTF-8" src="assets/js/_ideyou.core.js?v=<?= filemtime('assets/js/_ideyou.core.js'); ?>"></script>
     <?php
     $today = DateTime::createFromFormat('d/m/Y', strval(DATA()));
     $startDate = DateTime::createFromFormat('d/m', '01/11');

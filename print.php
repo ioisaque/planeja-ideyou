@@ -74,7 +74,7 @@ $pdf->Cell(50, 7, CLEANUP(Core::post('professor')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(15, 7, CLEANUP('Código: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(35, 7, CLEANUP(Core::post('codigo')), 'TRB', 0, 'L', false);
+	$pdf->Cell(35, 7, CLEANUP(Core::post('codigo') ?? ''), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(20, 7, CLEANUP('Ano/Turma: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);

@@ -9,12 +9,22 @@
  **/
 
 require_once("init.php");
+
+
 require_once(BASEPATH . "lib/fpdf/fpdf.php");
+
+class PlanejamentoPDF extends FPDF
+{
+	function Header()
+	{
+		$this->Image(BASEPATH . 'assets/images/background_logo.png', 31.5, 114, 147, 0, 'PNG');
+	}
+}
 
 $ESCOLA = "ESCOLA ESTADUAL JOÃO PAULO II";
 $EMAIL = "Telefone: (31) 9 9510-8515         Email: escola.213314@eduacao.mg.gov.br";
 $ENDERECO = 'Avenida dos Eucaliptos, 100 Revés do Belém - Bom Jesus do Galho/MG 35340-000';
-$PLANEJA = 'Planejamento_' . utf8_decode(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f'));
+$PLANEJA = 'Planejamento_' . CLEANUP(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f'));
 
 $ANEXOS = [];
 $descricao = Core::post('descricao') ?: [];
@@ -31,9 +41,7 @@ foreach ($descricao as $i => $item) {
  * tipo de folha = 210 x 297 mm
  */
 
-for ($p = 1; $p <= 2; $p++) {
-
-	$pdf = new FPDF();
+$pdf = new PlanejamentoPDF();
 	$pdf->SetXY(0, 0);
 	$pdf->SetMargins(0, 0, 0);
 	$pdf->SetAutoPageBreak(true);
@@ -45,48 +53,47 @@ for ($p = 1; $p <= 2; $p++) {
 	////////////////////////////////////////////////////////////////////////////////
 	$pdf->AddPage('P');
 	$pdf->SetTextColor(0, 0, 0);
-	$pdf->Image(BASEPATH . 'assets/images/powered_opacity.jpg', 0, -25, 210, 210, 'JPG');
 
-	$pdf->Cell(45, 25, utf8_decode(''), '', 0, 'C', false);
-	$pdf->Image(BASEPATH . 'assets/icons/aurelio-blue-1080.png', 9, 5, 25, 0, 'JPG');
+	$pdf->Cell(45, 25, CLEANUP(''), '', 0, 'C', false);
+	$pdf->Image(BASEPATH . 'assets/images/EEJPII.jpg', 9, 5, 25, 0, 'JPG');
 
 	$pdf->SetFont('ARIAL', 'B', 12);
-	$pdf->Cell(165, 10, utf8_decode($ESCOLA), '', 2, 'C', false);
+	$pdf->Cell(165, 10, CLEANUP($ESCOLA), '', 2, 'C', false);
 
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(165, 2, utf8_decode(''), '', 2, 'C', false);
-	$pdf->Cell(165, 4, utf8_decode($ENDERECO), '', 2, 'C', false);
-	$pdf->Cell(165, 4, utf8_decode($EMAIL), '', 2, 'C', false);
+	$pdf->Cell(165, 2, CLEANUP(''), '', 2, 'C', false);
+	$pdf->Cell(165, 4, CLEANUP($ENDERECO), '', 2, 'C', false);
+	$pdf->Cell(165, 4, CLEANUP($EMAIL), '', 2, 'C', false);
 	$pdf->Ln(5);
 
 	////////////////////////////////////////////////////////////////////////////////
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(23, 7, utf8_decode('Professor(a): '), 'TB', 0, 'L', false);
+	$pdf->Cell(23, 7, CLEANUP('Professor(a): '), 'TB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(50, 7, utf8_decode(Core::post('professor')), 'TRB', 0, 'L', false);
+	$pdf->Cell(50, 7, CLEANUP(Core::post('professor')), 'TRB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(15, 7, utf8_decode('Código: '), 'TLB', 0, 'L', false);
+	$pdf->Cell(15, 7, CLEANUP('Código: '), 'TLB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(35, 7, utf8_decode(Core::post('codigo')), 'TRB', 0, 'L', false);
+	$pdf->Cell(35, 7, CLEANUP(Core::post('codigo')), 'TRB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(20, 7, utf8_decode('Ano/Turma: '), 'TLB', 0, 'L', false);
+	$pdf->Cell(20, 7, CLEANUP('Ano/Turma: '), 'TLB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(0, 7, utf8_decode(Core::post('turma')), 'TB', 1, 'L', false);
+	$pdf->Cell(0, 7, CLEANUP(Core::post('turma')), 'TB', 1, 'L', false);
 
 
 
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(76, 7, utf8_decode('Área do Conhecimento/Componente Currícular: '), 'TB', 0, 'L', false);
+	$pdf->Cell(76, 7, CLEANUP('Área do Conhecimento/Componente Currícular: '), 'TB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(60, 7, utf8_decode(Core::post('componente_curricular')), 'TRB', 0, 'L', false);
+	$pdf->Cell(60, 7, CLEANUP(Core::post('componente_curricular')), 'TRB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(18, 7, utf8_decode('Bimestre: '), 'TLB', 0, 'L', false);
+	$pdf->Cell(18, 7, CLEANUP('Bimestre: '), 'TLB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(7, 7, utf8_decode(Core::post('bimestre')), 'TRB', 0, 'L', false);
+	$pdf->Cell(7, 7, CLEANUP(Core::post('bimestre')), 'TRB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', 'B', 9);
-	$pdf->Cell(16, 7, utf8_decode('Período: '), 'TLB', 0, 'L', false);
+	$pdf->Cell(16, 7, CLEANUP('Período: '), 'TLB', 0, 'L', false);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(33, 7, utf8_decode(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
+	$pdf->Cell(33, 7, CLEANUP(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
 
 	//////////////////////////////////////////////////////////////////////////////
 	if (Core::post('unidade_tematica') != '') :
@@ -94,12 +101,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Unidade Temática: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Unidade Temática: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('unidade_tematica')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('unidade_tematica')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -113,12 +120,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Objeto de Conhecimento: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Objeto de Conhecimento: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('objeto_de_conhecimento')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('objeto_de_conhecimento')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -132,12 +139,31 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Habilidade: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Habilidade: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('habilidade')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('habilidade')), '', 'J');
+
+		if ($Y2 > $pdf->GetY())
+			$pdf->SetY($Y2);
+
+		$pdf->Ln(1);
+		$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
+	//////////////////////////////////////////////////////////////////////////////
+	endif;
+    if (Core::post('jornada') != '') :
+		//////////////////////////////////////////////////////////////////////////////
+		$pdf->Ln(1);
+		$Y1 = $pdf->GetY();
+		$pdf->SetFont('ARIAL', 'B', 9);
+		$pdf->MultiCell(45, 4, CLEANUP('Jornada de Consolidação da Habilidade: '), '', 'L');
+		$Y2 = $pdf->GetY();
+
+		$pdf->SetXY(45, $Y1);
+		$pdf->SetFont('ARIAL', '', 9);
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('jornada')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -151,12 +177,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Competências Específicas: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Competências Específicas: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('competencias_especificas')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('competencias_especificas')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -170,12 +196,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Expectativa de Aprendizagem: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Expectativa de Aprendizagem: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('expectativa_de_aprendizagem')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('expectativa_de_aprendizagem')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -189,12 +215,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Espaço de Aula: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Espaço de Aula: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('espaco_de_aula')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('espaco_de_aula')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -208,12 +234,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Materiais Utilizados: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Materiais Utilizados: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('materiais_utilizados')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('materiais_utilizados')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -227,12 +253,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Organização dos Alunos: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Organização dos Alunos: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('organizacao_dos_alunos')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('organizacao_dos_alunos')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -246,12 +272,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Metodologias/Estratégias de Ensino: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Metodologias/Estratégias de Ensino: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('metodologias_de_ensino')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('metodologias_de_ensino')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -265,12 +291,12 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Forma de Avaliação: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Forma de Avaliação: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
 		$pdf->SetFont('ARIAL', '', 9);
-		$pdf->MultiCell(0, 4.5, utf8_decode(Core::post('forma_de_avaliacao')), '', 'J');
+		$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('forma_de_avaliacao')), '', 'J');
 
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
@@ -285,7 +311,7 @@ for ($p = 1; $p <= 2; $p++) {
 		$pdf->Ln(1);
 		$Y1 = $pdf->GetY();
 		$pdf->SetFont('ARIAL', 'B', 9);
-		$pdf->MultiCell(45, 4, utf8_decode('Anexos: '), '', 'L');
+		$pdf->MultiCell(45, 4, CLEANUP('Anexos: '), '', 'L');
 		$Y2 = $pdf->GetY();
 
 		$pdf->SetXY(45, $Y1);
@@ -293,23 +319,23 @@ for ($p = 1; $p <= 2; $p++) {
 		if ($Y2 > $pdf->GetY())
 			$pdf->SetY($Y2);
 
-
 		$pdf->SetFont('ARIAL', 'B', 9);
 		foreach ($ANEXOS as $id => $item) {
-			$pdf->SetX(50);
-			$pdf->Image('https://chart.googleapis.com/chart?cht=qr&chs=250x250&chld=L|0&chl=' . urlencode($item->link), 50, $pdf->GetY(), 25, 25, 'PNG');
-			$pdf->Image(BASEPATH . 'assets/images/qrcode_overlay.png', 50, $pdf->GetY(), 25, 25, 'PNG');
-			$pdf->Cell(25, 25, utf8_decode(''), 0, 0, 'L');
-			$pdf->SetX(78);
-			$pdf->MultiCell(0, 25, utf8_decode('#' . sprintf('%02d', $id + 1) . ' - ' . $item->descricao), 0, 'L');
-			$pdf->Ln(3);
+			$rowH = 28;
+			if ($pdf->GetY() + $rowH > 270)
+				$pdf->AddPage('P');
+
+			$y = $pdf->GetY();
+			$pdf->Image('https://cdn.isaque.it/qrcode/?txt=' . urlencode($item->link), 50, $y, 25, 25, 'PNG');
+			$pdf->SetXY(78, $y + 9);
+			$pdf->MultiCell(0, 5, CLEANUP('#' . sprintf('%02d', $id + 1) . ' - ' . $item->descricao), 0, 'L');
+			$pdf->SetY($y + $rowH);
 		}
 
 		$pdf->Ln(1);
 	//////////////////////////////////////////////////////////////////////////////
 	endif;
 	//////////////////////////////////////////////////////////////////////////////
-}
 /*
  * IMPRIMIR A SAIDA DO ARQUIVO
  * nome do arquivo

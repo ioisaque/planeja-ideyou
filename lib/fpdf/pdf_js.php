@@ -10,7 +10,7 @@ class PDF_JavaScript extends FPDF
     function IncludeJS($script, $isUTF8 = false)
     {
         if (!$isUTF8)
-            $script = utf8_encode($script);
+            $script = mb_convert_encoding($script, 'UTF-8', 'ISO-8859-1');
         $this->javascript = $script;
     }
 

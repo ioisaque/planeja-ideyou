@@ -27,6 +27,11 @@ function getCheckedStr($a, $b)
 	return ($a == $b) ? 'checked' : '';
 }
 
+function CLEANUP(string $text): string
+{
+    return mb_convert_encoding($text, 'ISO-8859-1', 'UTF-8');
+}
+
 /**
  * CAPS()
  *

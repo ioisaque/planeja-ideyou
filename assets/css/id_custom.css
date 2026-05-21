@@ -1,250 +1,245 @@
 .app-navbar,
 .app-notbar {
-	width: 100%;
-	height: 50px;
-	z-index: 20;
-	display: none;
-	align-items: center;
-	justify-content: center;
+  width: 100%;
+  height: 50px;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 .app-navbar {
-	height: calc(50px + env(safe-area-inset-bottom, 0px));
+  height: calc(50px + env(safe-area-inset-bottom, 0px));
 }
 .app-notbar {
-	z-index: 15;
+  z-index: 15;
 }
 
 .app-navbar > *,
 .app-notbar > * {
-	height: 100%;
-	padding: 0 1rem;
-	font-weight: 400;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 100%;
+  padding: 0 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .app-navbar i,
 .app-notbar i {
-	font-size: 130%;
-	margin-right: 0.5rem;
+  font-size: 130%;
+  margin-right: 0.5rem;
 }
 
 #install-prompt {
-	padding: 0.25em;
-	bottom: calc(50px + env(safe-area-inset-bottom, 0px));
+  padding: 0.25em;
+  bottom: calc(50px + env(safe-area-inset-bottom, 0px));
 }
 #install-prompt img {
-	width: 35px;
-	height: 35px;
-	padding: 0;
-	border-radius: 100%;
-	background-color: #fff;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border-radius: 100%;
+  background-color: #fff;
 }
 @media (max-width: 1024px) {
-	@media (max-width: 768px) {
-		.app-navbar,
-		.app-notbar {
-			left: 0;
-			right: 0;
-			bottom: 0;
+  @media (max-width: 768px) {
+    .app-navbar,
+    .app-notbar {
+      left: 0;
+      right: 0;
+      bottom: 0;
 
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			background-color: #000;
-		}
-		.app-notbar {
-			position: sticky;
-			bottom: calc(50px + env(safe-area-inset-bottom, 0px));
-		}
-		.app-navbar {
-			position: fixed;
-			padding-bottom: env(safe-area-inset-bottom, 0px);
-		}
-		.container-fluid {
-			padding-bottom: calc(65px + env(safe-area-inset-bottom)) !important;
-		}
-	}
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #000;
+    }
+    .app-notbar {
+      position: sticky;
+      bottom: calc(50px + env(safe-area-inset-bottom, 0px));
+    }
+    .app-navbar {
+      position: fixed;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .container-fluid {
+      padding-bottom: calc(65px + env(safe-area-inset-bottom)) !important;
+    }
+  }
 }
 
 .btn-card {
-	width: 100%;
-	padding: 1rem;
-	font-size: 1.25rem;
-	display: flex;
-	margin-bottom: 30px;
-	height: calc(100% - 30px);
-	align-items: center;
-	justify-content: center;
-}
-
-.btn-card .mdi {
-	padding: 0 5px;
-	font-size: 180% !important;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  margin-bottom: 30px;
+  height: calc(100% - 30px);
+  align-items: center;
+  justify-content: center;
 }
 
 .text-primary {
-	color: #ff5356 !important;
+  color: #ff5356 !important;
 }
 .text-secondary {
-	color: #33cc66 !important;
+  color: #33cc66 !important;
 }
 .text-white {
-	color: #ffffff !important;
+  color: #ffffff !important;
 }
 .text-themecolor {
-	color: #012060 !important;
+  color: #012060 !important;
 }
 
 .text-bold {
-	font-weight: 600 !important;
+  font-weight: 600 !important;
 }
 
 .text-center {
-	text-align: center !important;
+  text-align: center !important;
 }
 
 .border-themecolor {
-	border-color: #012060 !important;
+  border-color: #012060 !important;
 }
 
 .footer {
-	width: 100%;
-	height: 70px;
-	display: flex;
-	justify-content: center;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
 }
 
 pre {
-	font-weight: 400;
-	box-shadow: none;
-	white-space: pre-wrap;
-	font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  box-shadow: none;
+  white-space: pre-wrap;
+  font-family: "Poppins", sans-serif;
 }
 .datepicker table tr td.today {
-	color: white !important;
-	background: #133d63 !important;
+  color: white !important;
+  background: #133d63 !important;
 }
 .datepicker table tr td.active,
 .datepicker tfoot tr th:hover {
-	color: white !important;
-	background: #1976d2 !important;
+  color: white !important;
+  background: #1976d2 !important;
 }
 
 .table td,
 .table th {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 b,
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 input:disabled {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 select,
 option,
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .card-body .card {
-	background: #eef5f9;
+  background: #eef5f9;
 }
 
 .no-bg {
-	background: none !important;
+  background: none !important;
 }
 .no-border {
-	border: none !important;
-	outline: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
 option {
-	color: #5292b1;
-	min-height: 43px !important;
-	padding: 0.375rem 0.75rem !important;
+  color: #5292b1;
+  min-height: 43px !important;
+  padding: 0.375rem 0.75rem !important;
 }
 
 .pointer {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .id_font10x {
-	font-size: 100% !important;
+  font-size: 100% !important;
 }
 .id_font12x {
-	font-size: 120% !important;
+  font-size: 120% !important;
 }
 .id_font14x {
-	font-size: 140% !important;
+  font-size: 140% !important;
 }
 .id_font18x {
-	font-size: 180% !important;
+  font-size: 180% !important;
 }
 
 .id_bg-themecolor {
-	background-color: #012060 !important;
+  background-color: #012060 !important;
 }
 .id_bg-white {
-	color: #717374 !important;
-	background-color: #ffffff !important;
+  color: #717374 !important;
+  background-color: #ffffff !important;
 }
 
 .id_bg-themecolor {
-	color: white !important;
+  color: white !important;
 }
 
 .slimScrollDiv {
-	overflow: auto;
-	scroll-behavior: smooth;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .slimScrollDiv::-webkit-scrollbar,
 body::-webkit-scrollbar {
-	cursor: pointer;
-	width: 0.5rem;
-	border: none;
-	border-radius: 0;
-	background-color: transparent;
+  cursor: pointer;
+  width: 0.5rem;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
 }
 .slimScrollDiv::-webkit-scrollbar:horizontal,
 body::-webkit-scrollbar:horizontal {
-	height: 0.5rem;
-	border: none;
-	border-radius: 0;
-	background-color: transparent;
+  height: 0.5rem;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .slimScrollDiv::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .slimScrollDiv::-webkit-scrollbar-track:horizontal,
 body::-webkit-scrollbar-track:horizontal {
-	border-radius: 0;
+  border-radius: 0;
 }
 
 .slimScrollDiv::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb:horizontal {
-	background-color: #636363;
-	outline: 1px solid #636363;
-	border-radius: 0;
-	cursor: pointer;
+  background-color: #636363;
+  outline: 1px solid #636363;
+  border-radius: 0;
+  cursor: pointer;
 }
 
 .disable-dbl-tap-zoom {
-	touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 table thead,
 table tfoot {
-	z-index: 10;
+  z-index: 10;
 }
 table thead {
-	inset-block-start: 0;
+  inset-block-start: 0;
 }
 table tfoot {
-	inset-block-end: 0;
+  inset-block-end: 0;
 }

@@ -19,8 +19,8 @@ if (true === false)
         Aurélio - Planejamento Escolar
     </title>
     <meta content="Aurélio - Planejamento Escolar" property="og:title">
-    <meta name="description" content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar.">
-    <meta content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e bimestres em um só lugar." property="og:description">
+    <meta name="description" content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e periodos em um só lugar.">
+    <meta content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e periodos em um só lugar." property="og:description">
     <meta name="keywords" content="planejamento escolar, planejamento de aulas, plano de ensino, educação básica, professor, aula, currículo, BNCC, ensino fundamental, ensino médio, organização pedagógica, planejamento pedagógico, ferramenta educacional, app para professores, isaque.it, Aurélio, aplicativo educacional, imprimir planejamento, IdeYou, tecnologia educacional, ensino público, educação digital, gestor escolar">
 
     <!-- PWA -->
@@ -163,13 +163,24 @@ if (true === false)
                                         <input type="text" name="componente_curricular" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label>Bimestre</label>
-                                        <select name="bimestre" class="form-control custom-select" required>
-                                            <option value="0">Selecione uma opção...</option>
-                                            <option value="1º">1º BIMESTRE</option>
-                                            <option value="2º">2º BIMESTRE</option>
-                                            <option value="3º">3º BIMESTRE</option>
-                                            <option value="4º">4º BIMESTRE</option>
+                                        <label>Período</label>
+                                        <select name="periodo" class="form-control custom-select" required>
+                                            <option value="" disabled selected>Selecione uma opção...</option>
+                                            <optgroup label="Semestres">
+                                                <option value="1º SEMESTRE">1º SEMESTRE</option>
+                                                <option value="2º SEMESTRE">2º SEMESTRE</option>
+                                            </optgroup>
+                                            <optgroup label="Trimestres">
+                                                <option value="1º TRIMESTRE">1º TRIMESTRE</option>
+                                                <option value="2º TRIMESTRE">2º TRIMESTRE</option>
+                                                <option value="3º TRIMESTRE">3º TRIMESTRE</option>
+                                            </optgroup>
+                                            <optgroup label="Bimestres">
+                                                <option value="1º BIMESTRE">1º BIMESTRE</option>
+                                                <option value="2º BIMESTRE">2º BIMESTRE</option>
+                                                <option value="3º BIMESTRE">3º BIMESTRE</option>
+                                                <option value="4º BIMESTRE">4º BIMESTRE</option>
+                                            </optgroup>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -325,11 +336,11 @@ if (true === false)
                                             <div class="row">
                                                 <div class="col-5">
                                                     <label>Descrição</label>
-                                                    <input type="text" name="descricao[0]" class="form-control">
+                                                    <input type="text" name="descricao[]" class="form-control">
                                                 </div>
                                                 <div class="col-5">
                                                     <label>Link</label>
-                                                    <input type="text" name="link[0]" class="form-control">
+                                                    <input type="text" name="link[]" class="form-control">
                                                 </div>
                                                 <div class="col-2">
                                                     <label> </label>

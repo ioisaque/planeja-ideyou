@@ -27,9 +27,9 @@ function getCheckedStr($a, $b)
 	return ($a == $b) ? 'checked' : '';
 }
 
-function CLEANUP($text): string
+function CLEANUP(?string $text): string
 {
-	if (!is_string($text) || $text === null) {
+	if ($text === null || $text === '') {
 		return "";
 	}
 

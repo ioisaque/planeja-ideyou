@@ -74,7 +74,7 @@ $pdf->Cell(50, 7, CLEANUP(Core::post('professor')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(15, 7, CLEANUP('Código: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-	$pdf->Cell(35, 7, CLEANUP(Core::post('codigo') ?? ''), 'TRB', 0, 'L', false);
+$pdf->Cell(35, 7, CLEANUP(Core::post('codigo') ?? ''), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(20, 7, CLEANUP('Ano/Turma: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
@@ -87,13 +87,9 @@ $pdf->Cell(76, 7, CLEANUP('Área do Conhecimento/Componente Currícular: '), 'TB
 $pdf->SetFont('ARIAL', '', 9);
 $pdf->Cell(60, 7, CLEANUP(Core::post('componente_curricular')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
-$pdf->Cell(18, 7, CLEANUP('Bimestre: '), 'TLB', 0, 'L', false);
-$pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(7, 7, CLEANUP(Core::post('bimestre')), 'TRB', 0, 'L', false);
-$pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(16, 7, CLEANUP('Período: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(33, 7, CLEANUP(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
+$pdf->Cell(58, 7, CLEANUP( DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f')) . " (" . Core::post('periodo') . ")"), 'TB', 1, 'L', false);
 
 //////////////////////////////////////////////////////////////////////////////
 if (Core::post('unidade_tematica') != '') :

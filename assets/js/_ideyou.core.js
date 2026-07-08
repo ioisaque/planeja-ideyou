@@ -38,9 +38,9 @@ $(function () {
 		`);
 	});
 
-	$("#processarPlanejamento").on("submit", function () {
+	$('button[type="submit"][form="processarPlanejamento"]').on("click", function () {
 		try {
-			salvarPlanejamentoLocal($(this));
+			salvarPlanejamentoLocal($("#processarPlanejamento"));
 		} catch (err) {
 			console.error("Erro ao salvar planejamento:", err);
 		}

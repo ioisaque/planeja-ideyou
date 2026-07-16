@@ -3,7 +3,7 @@
 /**
  * Classe Registry
  *
- * @package IdeYou
+ * @package isaque.it
  * @author Isaque Costa
  * @copyright 2021
  **/

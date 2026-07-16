@@ -7,6 +7,16 @@ function visualizarPlanejamento(uuid) {
 
 	$("#anexos").html("");
 
+	if (planejamento.bimestre && !planejamento.periodo) {
+		const map = {
+			'1º': '1º BIMESTRE',
+			'2º': '2º BIMESTRE',
+			'3º': '3º BIMESTRE',
+			'4º': '4º BIMESTRE',
+		};
+		planejamento.periodo = map[planejamento.bimestre] || planejamento.bimestre;
+	}
+
 	for (const key in planejamento) {
 		if (!planejamento.hasOwnProperty(key))
 			continue;

@@ -12,7 +12,7 @@ if (true === false)
 <head>
     <!-- META -->
     <meta name="robots" content="index, follow">
-    <meta name="author" content="IdeYou - Isaque Costa">
+    <meta name="author" content="isaque.it - Isaque Costa">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="assets/icons/favicon.png" type="image/png" sizes="512x512">
     <title>
@@ -21,7 +21,7 @@ if (true === false)
     <meta content="Aurélio - Planejamento Escolar" property="og:title">
     <meta name="description" content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e periodos em um só lugar.">
     <meta content="Simplifique a criação e impressão de planejamentos pedagógicos com praticidade e elegância. Desenvolvido para professores da rede pública, o Aurélio organiza suas ideias e periodos em um só lugar." property="og:description">
-    <meta name="keywords" content="planejamento escolar, planejamento de aulas, plano de ensino, educação básica, professor, aula, currículo, BNCC, ensino fundamental, ensino médio, organização pedagógica, planejamento pedagógico, ferramenta educacional, app para professores, isaque.it, Aurélio, aplicativo educacional, imprimir planejamento, IdeYou, tecnologia educacional, ensino público, educação digital, gestor escolar">
+    <meta name="keywords" content="planejamento escolar, planejamento de aulas, plano de ensino, educação básica, professor, aula, currículo, BNCC, ensino fundamental, ensino médio, organização pedagógica, planejamento pedagógico, ferramenta educacional, app para professores, isaque.it, Aurélio, aplicativo educacional, imprimir planejamento, isaque.it, tecnologia educacional, ensino público, educação digital, gestor escolar">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json?v=<?= filemtime('manifest.json'); ?>">
@@ -150,17 +150,9 @@ if (true === false)
                                         <label>Professor</label>
                                         <input type="text" name="professor" class="form-control" required>
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label>Código</label>
-                                        <input type="text" name="codigo" class="form-control text-center">
-                                    </div>
                                     <div class="form-group col-md-4">
                                         <label>Ano/Turma</label>
                                         <input type="text" name="turma" class="form-control text-center" required>
-                                    </div>
-                                    <div class="form-group col-md-5">
-                                        <label>Área de Conhecimento/Componente Currícular</label>
-                                        <input type="text" name="componente_curricular" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label>Período</label>
@@ -183,8 +175,12 @@ if (true === false)
                                             </optgroup>
                                         </select>
                                     </div>
+                                    <div class="form-group col-md-8">
+                                        <label>Área de Conhecimento/Componente Currícular</label>
+                                        <input type="text" name="componente_curricular" class="form-control" required>
+                                    </div>
                                     <div class="form-group col-md-4">
-                                        <label>Período</label>
+                                        <label>Data</label>
                                         <div class="input-daterange input-group">
                                             <input type="text" name="periodo_i" value="<?= HOJE; ?>" class="form-control id_bg-dynamic b-0 text-center datepicker id_font10x" required>
                                             <div class="input-group-append pointer">
@@ -200,10 +196,10 @@ if (true === false)
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label class="text-bold">Unidade Temática: </label>
+                                            <label class="text-bold">Tema ou Unidade Temática: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
+                                            <textarea name="unidade_tematica" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Assunto da aula, alinhado ao Plano de Curso"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +225,7 @@ if (true === false)
                                             <label class="text-bold">Habilidade: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
+                                            <textarea name="habilidade" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Código BNCC — descrição da habilidade"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -252,10 +248,23 @@ if (true === false)
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3">
+                                            <label class="text-bold">Objetivo geral: </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <textarea name="objetivo_geral" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Visão ampla do que se espera ao final"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <label class="text-bold">Expectativa de Aprendizagem: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
+                                            <textarea name="expectativa_de_aprendizagem" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Habilidades e competências mensuráveis"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +316,7 @@ if (true === false)
                                             <label class="text-bold">Metodologias/Estratégias de Ensino: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
+                                            <textarea name="metodologias_de_ensino" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Estratégias e sequência (início, desenvolvimento, fechamento)"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -317,10 +326,23 @@ if (true === false)
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label class="text-bold">Forma de Avaliação: </label>
+                                            <label class="text-bold">Avaliação: </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="..."></textarea>
+                                            <textarea name="forma_de_avaliacao" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Como verificar o alcance dos objetivos"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="text-bold">Observações: </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <textarea name="observacoes" class="form-control mb-0 slimScrollDiv" style="height: 125px;" placeholder="Ponderações relevantes à aula"></textarea>
                                         </div>
                                     </div>
                                 </div>

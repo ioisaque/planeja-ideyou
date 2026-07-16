@@ -1,6 +1,6 @@
 <?php
 
-define('COMPANY_NAME', 'IdeYou');
+define('COMPANY_NAME', 'Aurelio');
 define("BASEPATH",     str_replace("init.php", "", realpath(__FILE__)));
 
 $logDir = BASEPATH . 'logs';

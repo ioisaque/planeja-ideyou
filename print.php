@@ -24,7 +24,7 @@ class PlanejamentoPDF extends FPDF
 $ESCOLA = "ESCOLA ESTADUAL JOÃO PAULO II";
 $EMAIL = "Telefone: (31) 9 9510-8515         Email: escola.213314@educacao.mg.gov.br";
 $ENDERECO = 'Avenida dos Eucaliptos, 100 Revés do Belém - Bom Jesus do Galho/MG 35340-000';
-$PLANEJA = 'Planejamento_' . CLEANUP(Core::data('turma')) . '_' . DATA(Core::data('periodo_i')) . '_' . DATA(Core::data('periodo_f'));
+$PLANEJA = 'Planejamento_' . CLEANUP(Core::data('turma')) . '_' . str_replace('/', '-', DATA(Core::data('periodo_i'))) . '_' . str_replace('/', '-', DATA(Core::data('periodo_f')));
 
 $ANEXOS = [];
 $descricao = Core::data('descricao') ?: [];

@@ -1,9 +1,6 @@
 <?php
 require_once("init.php");
 
-if (true === false)
-    return Core::framePage("https://cdn.ideyou.com.br/_error/503.html");
-
 ?>
 
 <!DOCTYPE html>

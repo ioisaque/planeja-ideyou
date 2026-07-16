@@ -24,11 +24,11 @@ class PlanejamentoPDF extends FPDF
 $ESCOLA = "ESCOLA ESTADUAL JOÃO PAULO II";
 $EMAIL = "Telefone: (31) 9 9510-8515         Email: escola.213314@educacao.mg.gov.br";
 $ENDERECO = 'Avenida dos Eucaliptos, 100 Revés do Belém - Bom Jesus do Galho/MG 35340-000';
-$PLANEJA = 'Planejamento_' . CLEANUP(Core::post('turma')) . '_' . DATA(Core::post('periodo_i')) . '_' . DATA(Core::post('periodo_f'));
+$PLANEJA = 'Planejamento_' . CLEANUP(Core::data('turma')) . '_' . DATA(Core::data('periodo_i')) . '_' . DATA(Core::data('periodo_f'));
 
 $ANEXOS = [];
-$descricao = Core::post('descricao') ?: [];
-$link   	 = Core::post('link') ?: [];
+$descricao = Core::data('descricao') ?: [];
+$link   	 = Core::data('link') ?: [];
 
 foreach ($descricao as $i => $item) {
 	if (!empty($descricao[$i]) && !empty($link[$i]))
@@ -67,18 +67,18 @@ $pdf->Cell(165, 4, CLEANUP($EMAIL), '', 2, 'C', false);
 $pdf->Ln(5);
 
 ////////////////////////////////////////////////////////////////////////////////
-$periodo = Core::post('periodo') ?: Core::post('bimestre');
+$periodo = Core::data('periodo') ?: Core::data('bimestre');
 if (in_array($periodo, ['1º', '2º', '3º', '4º'], true))
 	$periodo .= ' BIMESTRE';
 
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(23, 7, CLEANUP('Professor(a): '), 'TB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(67, 7, CLEANUP(Core::post('professor')), 'TRB', 0, 'L', false);
+$pdf->Cell(67, 7, CLEANUP(Core::data('professor')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(20, 7, CLEANUP('Ano/Turma: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(55, 7, CLEANUP(Core::post('turma')), 'TRB', 0, 'L', false);
+$pdf->Cell(55, 7, CLEANUP(Core::data('turma')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(18, 7, CLEANUP('Período: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
@@ -89,14 +89,14 @@ $pdf->Cell(27, 7, CLEANUP($periodo), 'TB', 1, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(76, 7, CLEANUP('Área do Conhecimento/Componente Currícular: '), 'TB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(89, 7, CLEANUP(Core::post('componente_curricular')), 'TRB', 0, 'L', false);
+$pdf->Cell(89, 7, CLEANUP(Core::data('componente_curricular')), 'TRB', 0, 'L', false);
 $pdf->SetFont('ARIAL', 'B', 9);
 $pdf->Cell(12, 7, CLEANUP('Data: '), 'TLB', 0, 'L', false);
 $pdf->SetFont('ARIAL', '', 9);
-$pdf->Cell(33, 7, CLEANUP(DATA(Core::post('periodo_i')) . ' à ' . DATA(Core::post('periodo_f'))), 'TB', 1, 'L', false);
+$pdf->Cell(33, 7, CLEANUP(DATA(Core::data('periodo_i')) . ' à ' . DATA(Core::data('periodo_f'))), 'TB', 1, 'L', false);
 
 //////////////////////////////////////////////////////////////////////////////
-if (Core::post('unidade_tematica') != '') :
+if (Core::data('unidade_tematica') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -106,7 +106,7 @@ if (Core::post('unidade_tematica') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('unidade_tematica')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('unidade_tematica')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -115,7 +115,7 @@ if (Core::post('unidade_tematica') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('objeto_de_conhecimento') != '') :
+if (Core::data('objeto_de_conhecimento') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -125,7 +125,7 @@ if (Core::post('objeto_de_conhecimento') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('objeto_de_conhecimento')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('objeto_de_conhecimento')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -134,7 +134,7 @@ if (Core::post('objeto_de_conhecimento') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('habilidade') != '') :
+if (Core::data('habilidade') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -144,7 +144,7 @@ if (Core::post('habilidade') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('habilidade')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('habilidade')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -153,7 +153,7 @@ if (Core::post('habilidade') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('competencias_especificas') != '') :
+if (Core::data('competencias_especificas') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -163,7 +163,7 @@ if (Core::post('competencias_especificas') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('competencias_especificas')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('competencias_especificas')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -172,7 +172,7 @@ if (Core::post('competencias_especificas') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('objetivo_geral') != '') :
+if (Core::data('objetivo_geral') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -182,7 +182,7 @@ if (Core::post('objetivo_geral') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('objetivo_geral')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('objetivo_geral')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -191,7 +191,7 @@ if (Core::post('objetivo_geral') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('expectativa_de_aprendizagem') != '') :
+if (Core::data('expectativa_de_aprendizagem') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -201,7 +201,7 @@ if (Core::post('expectativa_de_aprendizagem') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('expectativa_de_aprendizagem')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('expectativa_de_aprendizagem')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -210,7 +210,7 @@ if (Core::post('expectativa_de_aprendizagem') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('espaco_de_aula') != '') :
+if (Core::data('espaco_de_aula') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -220,7 +220,7 @@ if (Core::post('espaco_de_aula') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('espaco_de_aula')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('espaco_de_aula')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -229,7 +229,7 @@ if (Core::post('espaco_de_aula') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('materiais_utilizados') != '') :
+if (Core::data('materiais_utilizados') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -239,7 +239,7 @@ if (Core::post('materiais_utilizados') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('materiais_utilizados')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('materiais_utilizados')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -248,7 +248,7 @@ if (Core::post('materiais_utilizados') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('organizacao_dos_alunos') != '') :
+if (Core::data('organizacao_dos_alunos') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -258,7 +258,7 @@ if (Core::post('organizacao_dos_alunos') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('organizacao_dos_alunos')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('organizacao_dos_alunos')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -267,7 +267,7 @@ if (Core::post('organizacao_dos_alunos') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('metodologias_de_ensino') != '') :
+if (Core::data('metodologias_de_ensino') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -277,7 +277,7 @@ if (Core::post('metodologias_de_ensino') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('metodologias_de_ensino')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('metodologias_de_ensino')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -286,7 +286,7 @@ if (Core::post('metodologias_de_ensino') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('forma_de_avaliacao') != '') :
+if (Core::data('forma_de_avaliacao') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -296,7 +296,7 @@ if (Core::post('forma_de_avaliacao') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('forma_de_avaliacao')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('forma_de_avaliacao')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -305,7 +305,7 @@ if (Core::post('forma_de_avaliacao') != '') :
 	$pdf->Line(0, $pdf->GetY(), 210, $pdf->GetY());
 //////////////////////////////////////////////////////////////////////////////
 endif;
-if (Core::post('observacoes') != '') :
+if (Core::data('observacoes') != '') :
 	//////////////////////////////////////////////////////////////////////////////
 	$pdf->Ln(1);
 	$Y1 = $pdf->GetY();
@@ -315,7 +315,7 @@ if (Core::post('observacoes') != '') :
 
 	$pdf->SetXY(45, $Y1);
 	$pdf->SetFont('ARIAL', '', 9);
-	$pdf->MultiCell(0, 4.5, CLEANUP(Core::post('observacoes')), '', 'J');
+	$pdf->MultiCell(0, 4.5, CLEANUP(Core::data('observacoes')), '', 'J');
 
 	if ($Y2 > $pdf->GetY())
 		$pdf->SetY($Y2);
@@ -362,5 +362,5 @@ endif;
  * Se o plug-in estiver instalado ele serao usado.
  * mais opcoes no final do artigo ou visite o manual fpdf.
  */
-$download = Core::post('download') ? 'D' : 'I';
+$download = Core::data('download') ? 'D' : 'I';
 $pdf->Output($download, $PLANEJA . '.pdf');

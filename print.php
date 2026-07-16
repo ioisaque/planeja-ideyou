@@ -345,7 +345,22 @@ if (sizeof($ANEXOS)) :
 			$pdf->AddPage('P');
 
 		$y = $pdf->GetY();
-		$pdf->Image('https://cdn.isaque.it/qrcode/?txt=' . urlencode($item->link), 50, $y, 25, 25, 'PNG');
+
+		// allow_url_fopen fica desabilitado no servidor; baixar o QR via cURL para arquivo local
+		$curl = curl_init('https://cdn.isaque.it/qrcode/?txt=' . urlencode($item->link));
+		curl_setopt_array($curl, [
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_TIMEOUT => 10,
+		]);
+		$png = curl_exec($curl);
+
+		if ($png) {
+			$tmp = tempnam(sys_get_temp_dir(), 'qr') . '.png';
+			file_put_contents($tmp, $png);
+			$pdf->Image($tmp, 50, $y, 25, 25, 'PNG');
+			unlink($tmp);
+		}
+
 		$pdf->SetXY(78, $y + 9);
 		$pdf->MultiCell(0, 5, CLEANUP('#' . sprintf('%02d', $id + 1) . ' - ' . $item->descricao), 0, 'L');
 		$pdf->SetY($y + $rowH);

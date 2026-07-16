@@ -161,6 +161,8 @@ if (true === false)
                                             <optgroup label="Semestres">
                                                 <option value="1º SEMESTRE">1º SEMESTRE</option>
                                                 <option value="2º SEMESTRE">2º SEMESTRE</option>
+                                                <option value="3º SEMESTRE">3º SEMESTRE</option>
+                                                <option value="4º SEMESTRE">4º SEMESTRE</option>
                                             </optgroup>
                                             <optgroup label="Trimestres">
                                                 <option value="1º TRIMESTRE">1º TRIMESTRE</option>
